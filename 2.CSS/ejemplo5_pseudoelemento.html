@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    .pseudoelemento::first-line {
+        color: blue;
+        text-transform: uppercase;
+    }
+    p:first-letter {
+        font-weight: bold;
+        color: red;
+        text-transform: uppercase;
+    }
+    h1:before { content: "Capítulo - "; }
+    p:after   { content: "."; }
+    </style>
+</head>
+<body>
+<h1>Pseudoelementos</h1>
+<p class="pseudoelemento">el estilo solo será aplicado a la primer línea de este párrafo. Después de esto , todo el texto tendrá un estilo normal</p>
+</body>
+</html>

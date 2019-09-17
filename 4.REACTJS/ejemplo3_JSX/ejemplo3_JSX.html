@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+      const name = 'Josh Perez';
+      function formatName(user) {
+        return user.firstName + ' ' + user.lastName;
+      }
+      /*
+      function getGreeting(user) {
+        if (user) {
+          return <u>Hello, {formatName(user)}!</u>;
+        }
+        return <h1>Hello, Stranger.</h1>;
+      }*/
+
+      const user = {
+        firstName: 'Harper',
+        lastName: 'Perez',
+        avatarUrl:'./avatar.jpg'
+      };
+
+      const element = <h1>Hello, {name}, {formatName(user)}, {1+2}, {Math.PI}, {/*getGreeting(user)*/}</h1>;
+      const element2 = <div tabIndex="0"></div>;
+      const element3 = <img src={user.avatarUrl} width="50px"></img>;
+      const element4 = (
+                      <div>
+                        <h1>Hello!</h1>
+                        <h2>Good to see you here.</h2>
+                      </div>
+                    );
+	
+	const element5a = (
+      <h1 className="greeting">
+        Hello, world!
+      </h1>
+    );
+	
+	const element5b = React.createElement(
+	   'h1',
+       {className: 'greeting'},
+       'Hello, world!'
+    );
+      
+      
+
+      ReactDOM.render(
+      element5a,
+      document.getElementById('root')
+      );
+
+    </script>
+  </body>
+</html>

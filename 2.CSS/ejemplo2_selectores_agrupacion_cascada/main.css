@@ -1,0 +1,10 @@
+h2 { background-color: gray;}
+h1 { color: red; }
+.alert { 
+    background-color: #ff0000; 
+    color:black; 
+}
+#nombre {
+     font-family: "Times New Roman", Times, serif;
+ }
+/*comentarios*/

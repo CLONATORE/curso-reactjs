@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+        <form method="GET">
+            <div>
+                <label for="tarea">Tarea</label>
+                <input id="tarea" type="text" name="tarea" placeholder="Tarea" />
+            </div>
+            <div>
+                <label for="textarea">TextArea</label>
+                <textarea id="textarea" name="descripcion"></textarea>
+            </div>
+            <div>
+                <label for="tipo">Tipo</label>
+                <select id="tipo" name="tipo">
+                        <option selected>Nueva</option>
+                        <option>Actualizar</option>
+                        <option>Otra</option>
+                </select>
+            </div>
+            <div>
+                <label for="pass">Password</label>
+                <input id="pass" type="password"/><br/>
+                <input id="pass" type="password" readonly/>
+            </div>
+            <div>
+                <label for="check1">Check 1</label>
+                <input id="check1" type="checkbox" name="check1" checked/>
+                <label for="check2">Check 2</label>
+                <input id="check2" type="checkbox" name="check2"/>
+            </div>
+            <div>
+                <label for="radio1">Radio 1</label>
+                <input id="radio1" type="radio" name="test1"/>
+                <label for="radio2">Radio 2</label>
+                <input id="radio2" type="radio" name="test1"/>
+                <label for="radio3">Radio 3</label>
+                <input id="radio3" type="radio" name="test1" disabled/>
+            </div>
+                <input type="submit" value="Enviar" />
+                <input type="button" value="Boton" disabled/>
+                <button>Boton 2</button>
+                <input type="reset" value="Reset"/>
+        </form>
+</body>
+
+</html>

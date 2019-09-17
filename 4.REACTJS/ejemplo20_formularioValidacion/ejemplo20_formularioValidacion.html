@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        class MyForm extends React.Component {
+          constructor(props) {
+            super(props);
+			this.state = {
+			  username: '',
+			  usernameMessage: '',
+			  age: null,
+			  ageMessage: '',
+			};
+            this.data = { 
+			  username: {
+                  value:'',
+                  touch:false,
+                  valid: false,
+                  message: ''
+              },
+              age: {
+                  value:null,
+                  touch:false,
+                  valid: false,
+                  message: ''
+              }
+			};
+          }
+          mySubmitHandler = (event) => {
+            event.preventDefault();
+            let age = this.state.age;
+            if (!Number(age)) {
+			  this.data.message = "Your age must be a number";
+            } else {
+			  this.data.message = "";
+			}
+			this.setState({['ageMessage']: this.data.age.message});
+          }
+          myChangeHandler = (event) => {
+            let nam = event.target.name;
+            let val = event.target.value;
+            this.data[nam].value = val;
+			this.data[nam].touch = true;
+            if(nam === 'age' && !Number(val)) {
+              this.data.age.valid = false;
+              this.data.age.message= "Your age must be a number";
+            } else {
+              this.data.age.valid = true;
+              this.data.age.message= "";
+            }
+			this.setState({'ageMessage': this.data.age.message});
+            this.setState({[nam]: val});
+          }
+          render() {
+		    const mystyle = {
+			  color: "red"
+			};
+			const hidestyle = {
+			  display: "none"
+			};
+            return (
+              <form onSubmit={this.mySubmitHandler}>
+              <h1>Hello {this.state.username} {this.state.age}</h1>
+			  <div>
+              <label htmlFor="username">Enter your name: </label>
+              <input
+			    id="username"
+                type='text'
+                name='username'
+                onChange={this.myChangeHandler}
+              />
+			  <p style={(this.state.usernameMessage != '')?mystyle:hidestyle}>{this.state.usernameMessage}</p>
+			  </div>
+			  <div>
+              <label htmlFor="age">Enter your age: </label>
+              <input id="age" type='text' name='age' onChange={this.myChangeHandler} />
+			  <p style={(this.state.ageMessage != '')?mystyle:hidestyle}>{this.state.ageMessage}</p>
+			  </div>
+              <br/><br/>
+              <input type='submit' />
+              </form>
+            );
+          }
+        }
+
+        ReactDOM.render(<MyForm />, document.getElementById('root'));
+    </script>
+  </body>
+</html>
