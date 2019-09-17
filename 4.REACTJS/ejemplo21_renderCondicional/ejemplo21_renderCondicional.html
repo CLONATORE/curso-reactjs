@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        class MyForm extends React.Component {
+          constructor(props) {
+            super(props);
+            this.state = { username: '' };
+          }
+          myChangeHandler = (event) => {
+            this.setState({username: event.target.value});
+          }
+          render() {
+            let header = '';
+            if (this.state.username) {
+              header = <h1>Hello {this.state.username}</h1>;
+            } else {
+              header = '';
+            }
+            return (
+              <form>
+              {header}
+              <p>Enter your name:</p>
+              <input
+                type='text'
+                onChange={this.myChangeHandler}
+              />
+              </form>
+            );
+          }
+        }
+
+        ReactDOM.render(<MyForm />, document.getElementById('root'));
+    </script>
+  </body>
+</html>
