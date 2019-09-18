@@ -27,7 +27,7 @@
             let newtext = document.createTextNode("nuevo item");
             li.appendChild(newtext);
 			//innerHTML
-			//ul.innerHTML =  ul.innerHTML + '<li>nuevo item</li>';
+			ul.innerHTML =  "<b>test</b>"//ul.innerHTML + '<li>nuevo item</li>';
 			
         });
     });

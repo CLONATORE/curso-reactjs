@@ -12,6 +12,7 @@ function baz(a, b) {
 function baz1() {
     console.log('Hola');
 }
+baz()
 baz(1,2);
 baz(12,1,5);
 
@@ -27,7 +28,7 @@ obj.bar(3);
 // Condiciones y sentencias de control
 // Si `x` es igual a 0? === (sin casting) no es lo mismo == (con casting)
 x='0';
-if (x == 0) {
+if (x === 0) {
     x = 123;
 } else if (){
 
@@ -43,10 +44,14 @@ for (let i=0; i < arr.length; i++) {
 
 // Tipos e instancias 
 typeof true; // 'boolean'
+
 'test' instanceof String  //true
 
 // Boolean
 '', false, 0, undefined, null, NaN ---> false
+if(varible) {
+
+}
 
 let x = null;
 if(x) {
@@ -58,3 +63,4 @@ Math.PI
 Math.sqrt(9);
 //potencia 49
 Math.pow(7, 2); 
+
