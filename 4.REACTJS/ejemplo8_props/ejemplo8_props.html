@@ -22,17 +22,26 @@
           return <div>
                    <h2>I am a {this.props.color} {this.props.brand}!</h2>
                    <p>Model: {this.props.moreInfo.model}, Year: {this.props.moreInfo.year}</p>
+				   <button onClick={() => { this.props.f('Mensaje'); } }>Mandar mensaje a padre</button>
                  </div>
         }
       }
       class Garage extends React.Component {
+	    constructor(props){
+            super(props);
+			this.state = { "mensaje": ''};
+		}
+	    mensaje = (m) => {
+		  this.setState({ "mensaje" : m});
+		}
         render() {
           let color = 'Blue';
           let moreInfo = { model: 'Mustang', year: 1967};
           return (
             <div>
             <h1>Who lives in my garage?</h1>
-            <Car brand="Ford" color={color} moreInfo={moreInfo}/>
+            <Car brand="Ford" color={color} moreInfo={moreInfo} f={this.mensaje}/>
+			<b>{this.state.mensaje}</b>
             </div>
           );
         }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const mystyle = {
+          color: "white",
+          backgroundColor: "DodgerBlue",
+          padding: "10px",
+          fontFamily: "Arial"
+        };
+
+        class MyHeader extends React.Component {
+          render() {
+            return (
+              <div>
+              <h1 style={{color: "red",backgroundColor:'lightblue'}}>Hello Style!</h1>
+              <p style={mystyle}>Add a little style!</p>
+              </div>
+            );
+          }
+        };
+
+        ReactDOM.render(
+          <div>
+            <MyHeader/>
+          </div>,
+          document.getElementById('root')
+        );
+    </script>
+  </body>
+</html>
